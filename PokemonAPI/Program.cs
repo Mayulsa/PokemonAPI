@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using PokemonAPI;
 using PokemonAPI.Data;
+using PokemonAPI.Interfaces;
+using PokemonAPI.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddTransient<Seed>();
+//Add the interfaces and repository
+builder.Services.AddScoped<IPokemonRepository, PokemonRepository>();
 
 //The code is registering the DataContext class as a service in the application's dependency injection container. 
 builder.Services.AddDbContext<DataContext>(options =>
