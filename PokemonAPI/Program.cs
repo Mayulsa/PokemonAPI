@@ -3,6 +3,7 @@ using PokemonAPI;
 using PokemonAPI.Data;
 using PokemonAPI.Interfaces;
 using PokemonAPI.Repository;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddTransient<Seed>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 //Add the interfaces and repository
 builder.Services.AddScoped<IPokemonRepository, PokemonRepository>();
 
