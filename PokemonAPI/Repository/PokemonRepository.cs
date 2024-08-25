@@ -13,6 +13,11 @@ namespace PokemonAPI.Repository
             _context = context;
         }
 
+        public ICollection<Pokemon> GetPokemons()
+        {
+            return _context.Pokemon.OrderBy(p => p.Id).ToList();
+        }
+
         public Pokemon GetPokemon(int id)
         {
             return _context.Pokemon.Where(p => p.Id == id).FirstOrDefault();
@@ -31,11 +36,6 @@ namespace PokemonAPI.Repository
                 return 0;
             return ((decimal)review.Sum(r => r.Rating) / review.Count());
             
-        }
-
-        public ICollection<Pokemon> GetPokemons()
-        {
-            return _context.Pokemon.OrderBy(p => p.Id).ToList();
         }
 
         public bool PokemonExists(int pokeId)
