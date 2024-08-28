@@ -17,7 +17,7 @@ namespace PokemonAPI.Repository
             return _context.Countries.Any(c => c.Id == id);
         }
 
-        public ICollection<Country> GetCountry()
+        public ICollection<Country> GetCountries()
         {
             return _context.Countries.OrderBy(c => c.Id).ToList();
         }
@@ -32,9 +32,9 @@ namespace PokemonAPI.Repository
             return _context.Owners.Where(o => o.Id == ownerId).Select(c => c.Country).FirstOrDefault();
         }
 
-        public ICollection<Owner> GetOwnersByCountryId(int id)
+        public ICollection<Owner> GetOwnersByCountryId(int countryId)
         {
-            return _context.PokemonCategories.Where(c => c.CategoryId == categoryId).Select(p => p.Pokemon).ToList();
+            return _context.Owners.Where(c => c.Country.Id == countryId).ToList();
         }
     }
 }

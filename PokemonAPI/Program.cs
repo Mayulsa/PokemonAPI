@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.EntityFrameworkCore;
 using PokemonAPI;
 using PokemonAPI.Data;
@@ -14,6 +15,10 @@ builder.Services.AddTransient<Seed>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 //Add the interfaces and repository
 builder.Services.AddScoped<IPokemonRepository, PokemonRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICountryRepository, CountryRepository>();
+builder.Services.AddScoped<IOwnerRepository, OwnerRepository>();
+builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
 
 //The code is registering the DataContext class as a service in the application's dependency injection container. 
 builder.Services.AddDbContext<DataContext>(options =>

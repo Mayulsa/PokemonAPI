@@ -4,10 +4,10 @@ namespace PokemonAPI.Interfaces
 {
     public interface ICountryRepository
     {
-        ICollection<Country> GetCountry();
+        ICollection<Country> GetCountries();
         Country GetCountry(int id);
         Country GetCountryByOwner(int ownerId);
-        ICollection<Owner> GetOwnersByCountryId(int id);
+        ICollection<Owner> GetOwnersByCountryId(int countryId);
         bool CountryExists(int id);
     }
 }

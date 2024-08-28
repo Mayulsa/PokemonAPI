@@ -10,6 +10,9 @@ namespace PokemonAPI.Helper
         {
             CreateMap<Pokemon, PokemonDTO>();
             CreateMap<Category, CategoryDTO>();
+            CreateMap<Country, CountryDTO>();
+            CreateMap<Owner, OwnerDTO>();
+            CreateMap<Review, ReviewDTO>();
         }
     }
 }
