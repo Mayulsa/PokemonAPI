@@ -52,10 +52,12 @@ namespace PokemonAPI.Controllers
         {
             if (!_reviewRepository.ReviewExists(pokeId))
                 return NotFound();
-            var review = _mapper.Map<List<ReviewDTO>>(_reviewRepository.GetReviewOfAPokemon(pokeId));
-            if (!ModelState.IsValid)
+            var reviews = _mapper.Map<List<ReviewDTO>>(_reviewRepository.GetReviewOfAPokemon(pokeId));
+            if (!ModelState.IsValid) 
                 return BadRequest(ModelState);
-            return Ok(review);
+
+
+            return Ok(reviews);
         }
     }
 }

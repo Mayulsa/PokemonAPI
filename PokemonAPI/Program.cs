@@ -19,6 +19,7 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICountryRepository, CountryRepository>();
 builder.Services.AddScoped<IOwnerRepository, OwnerRepository>();
 builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
+builder.Services.AddScoped<IReviewerRespository, ReviewerRepository>();
 
 //The code is registering the DataContext class as a service in the application's dependency injection container. 
 builder.Services.AddDbContext<DataContext>(options =>
